@@ -145,6 +145,15 @@ const toggleTickSub = (_id, ind) => {
 }
 
 
+const toggleEditSub = (_id, ind) => {
+    return(dispatch) => {
+        fetch(Host + '/test/edit/' ,{ method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({_id: _id, ind: ind})})
+        .then(res => res.json())
+        .then(json => {
+            dispatch(fetchPosts())
+        })
+    }
+}
 
 
 
@@ -203,6 +212,9 @@ const mapDispatch = (dispatch) => {
         },
         toggleTickSub: (_id, ind) => {
             dispatch(toggleTickSub(_id, ind))
+        },
+        toggleEditSub: (_id, ind) => {
+            dispatch(toggleEditSub(_id, ind))
         },
         fetchPosts: () => {
             dispatch(fetchPosts())

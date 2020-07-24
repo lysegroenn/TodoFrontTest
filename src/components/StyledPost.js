@@ -19,11 +19,11 @@ const StyledItemsDiv = styled.div`
 `;
 
 
-const StyledPost = ({ post, tick, removePost, addSub, removeSub }) => (
+const StyledPost = ({ post, tick, removePost, addSub, removeSub, editSub }) => (
     <StyledPostDiv>
         <h1 style={{marginBottom: '20px'}}>{post.title}</h1>
         <StyledItemsDiv>
-            {post.items ? post.items.map((p, i) => <StyledSub _id={post._id} ind={i} sub={p} tick={tick} remove={removeSub} />) : null }
+            {post.items ? post.items.map((p, i) => <StyledSub _id={post._id} ind={i} sub={p} tick={tick} remove={removeSub} edit={editSub} />) : null }
         </StyledItemsDiv>
         <button onClick={() => removePost(post._id)}>Remove Post</button>
         <button onClick={() => addSub(post._id)}>Add Sub</button>
