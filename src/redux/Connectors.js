@@ -43,9 +43,6 @@ const isFetching = (bool) => {
 }
 
 
-
-
-
 // Authentication actions
 
 const checkLoginStatus = () => {
@@ -156,6 +153,17 @@ const toggleEditSub = (_id, ind) => {
 }
 
 
+const editBodySub = (_id, ind, body) => {
+    return(dispatch) => {
+        fetch(Host + '/test/editBody/' ,{ method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({_id: _id, ind: ind, body: body})})
+        .then(res => res.json())
+        .then(json => {
+            console.log(json.success)
+            dispatch(fetchPosts())
+        })
+    }
+}
+
 
 /* Reducer: Is passed the initial state as well as an action,
  which is an object containing a 'type' and a 'payload'. 
@@ -215,6 +223,9 @@ const mapDispatch = (dispatch) => {
         },
         toggleEditSub: (_id, ind) => {
             dispatch(toggleEditSub(_id, ind))
+        },
+        editBodySub: (_id, ind, body) => {
+            dispatch(editBodySub(_id, ind, body))
         },
         fetchPosts: () => {
             dispatch(fetchPosts())

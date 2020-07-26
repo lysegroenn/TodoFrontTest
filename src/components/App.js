@@ -19,7 +19,7 @@ class App extends React.Component {
                 </div>
                 <div id="posts-div">
                     {this.props.posts ?
-                        this.props.posts.map((p, i) => <StyledPost post={p}  tick={this.props.toggleTickSub} removePost={this.props.removeUserPost} addSub={this.props.addUserSub} removeSub={this.props.removeUserSub} editSub={this.props.toggleEditSub} />)
+                        this.props.posts.map((p, i) => <StyledPost post={p}  tick={this.props.toggleTickSub} removePost={this.props.removeUserPost} addSub={this.props.addUserSub} removeSub={this.props.removeUserSub} editSub={this.props.toggleEditSub} editBodySub={this.props.editBodySub} />)
 
 
                     : null                

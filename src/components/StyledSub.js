@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import styled from 'styled-components';
 import TickButton from './TickButton';
 import DeleteButton from './DeleteButton';
@@ -53,9 +53,11 @@ const SubDone = ({ sub, _id, ind, remove, tick, edit, editing, setEditing }) => 
     </StyledSubDiv>
 )
 
-const SubEditing = ({ _id, ind, editing, setEditing }) => (
+const SubEditing = ({ _id, ind, editing, setEditing, newBody, setNewBody, setNewBodyF, editBodySub }) => (
     <StyledSubDiv>
         <StyledEditingDiv>
+            <textarea onChange={setNewBodyF} value={newBody} ></textarea>
+            <button onClick={() => {editBodySub(_id, ind, newBody); setEditing(false); setNewBody('')}}>Fire</button>
         </StyledEditingDiv>
         <StyledUtilsDiv>
                 <EditButton _id={_id} ind={ind} editing={editing} setEdit={setEditing} />
@@ -65,13 +67,19 @@ const SubEditing = ({ _id, ind, editing, setEditing }) => (
 
 
 
-const StyledSub = ({ sub, _id, ind, remove, tick, edit }) => {
+const StyledSub = ({ sub, _id, ind, remove, tick, edit, editBodySub }) => {
     const [editing, setEditing] = useState(false)
+    const [newBody, setNewBody] = useState('')
+
+    const setNewBodyF = (event) => {
+        setNewBody(event.target.value)
+    }
+
     
     return (
         <div>
             {!editing && <SubDone sub={sub} _id={_id} ind={ind} remove={remove} tick={tick} editing={editing} setEditing={setEditing} />}
-            {editing && <SubEditing _id={_id} ind={ind} editing={editing} setEditing={setEditing} />}
+            {editing && <SubEditing _id={_id} ind={ind} editing={editing} setEditing={setEditing} newBody={newBody} setNewBody={setNewBody} setNewBodyF={setNewBodyF} editBodySub={editBodySub} />}
         </div>
      )
 }
