@@ -11,15 +11,14 @@ max-width: 20vw;
 height: 25vh;
 display: grid;
 grid-template-columns: auto auto 7vh;
-grid-template-rows: 6vh auto;
+grid-template-rows: auto;
 grid-template-areas: 
-"title title title"
 "body body util"
 
 `;
 
 const StyledTitleDiv = styled.div`
-    grid-area: title;
+    grid-area: body;
     min-width: 15vw;
     text-align: center;
 `;
@@ -36,7 +35,13 @@ const StyledEditingDiv = styled.div`
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 3;
-    background-color: pink;
+    
+
+    & > textarea {
+        resize: none;
+        
+        width 100%;
+    }
 `;
 
 
