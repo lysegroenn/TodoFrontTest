@@ -1,9 +1,12 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: grey;
+    
 }
 
+#app {
+    background-color: #e1dbdb;;
+}
 
 .header-div {
     position: fixed;
@@ -78,4 +81,23 @@
 .tick-button-exited > svg {
 	transform: translateY(-50px);
 	opacity: 0;
+}
+
+.add-sub-pop-exited {
+    display: none;
+    transform: scale(0.3);
+}
+
+.add-sub-pop-exiting {
+    transform: scale(0.3);
+}
+
+.add-sub-pop-entered {
+    display: block;
+    
+}
+
+.add-sub-pop-entering {
+    transform: scale(0.3);
+    
 }

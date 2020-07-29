@@ -6,8 +6,9 @@ import EditButton from './EditButton';
 
 const StyledSubDiv = styled.div`
 border: 1px solid black;
-min-width: 15vw;
-max-width: 20vw;
+background-color: #e1dbdb;
+min-width: 15vmax;
+max-width: 30vmax;
 height: 25vh;
 display: grid;
 grid-template-columns: auto auto 7vh;

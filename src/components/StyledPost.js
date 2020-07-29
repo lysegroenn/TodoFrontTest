@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Transition } from 'react-transition-group'
 import StyledSub from './StyledSub';
 import AddSubPop from './AddSubPop';
 
@@ -32,7 +33,11 @@ const StyledPost = ({ post, tick, removePost, addSub, removeSub, editSub, editBo
             <button onClick={() => removePost(post._id)}>Remove Post</button>
             <button onClick={() => setAddingSub(true)} >Add Sub</button>
             {/*<button onClick={() => addSub(post._id)}>Add Sub</button>*/}
-            {addingSub && <AddSubPop setAddingSub={setAddingSub} />}
+            <Transition in={addingSub} timeout={200} >
+                {state => (
+                    <AddSubPop setAddingSub={setAddingSub} addSub={addSub} _id={post._id} state={state} />
+                )}                
+            </Transition>
         </StyledPostDiv>
     )
 };

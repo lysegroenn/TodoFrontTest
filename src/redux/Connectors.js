@@ -109,9 +109,9 @@ const removeUserPost = (_id) => {
     }
 }
 
-const addUserSub = (_id) => {
+const addUserSub = (_id, body) => {
     return (dispatch) => {
-        fetch(Host + '/test/userSub/' , { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({_id: _id})})
+        fetch(Host + '/test/userSub/' , { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({_id: _id, body: body})})
         .then(res => res.json())
         .then(json => {
             //console.log(json)
@@ -212,8 +212,8 @@ const mapDispatch = (dispatch) => {
         removeUserPost: (_id) => {
             dispatch(removeUserPost(_id))
         },
-        addUserSub: (_id) => {
-            dispatch(addUserSub(_id))
+        addUserSub: (_id, body) => {
+            dispatch(addUserSub(_id, body))
         },
         removeUserSub: (_id, ind) => {
             dispatch(removeUserSub(_id, ind))
