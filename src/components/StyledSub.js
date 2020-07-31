@@ -39,9 +39,10 @@ const StyledEditingDiv = styled.div`
     
 
     & > textarea {
+        margin: 10px;
         resize: none;
-        
-        width 100%;
+        height: 75%;
+        width 85%;
     }
 `;
 
@@ -63,7 +64,7 @@ const SubEditing = ({ _id, ind, editing, setEditing, newBody, setNewBody, setNew
     <StyledSubDiv>
         <StyledEditingDiv>
             <textarea onChange={setNewBodyF} value={newBody} ></textarea>
-            <button onClick={() => {editBodySub(_id, ind, newBody); setEditing(false); setNewBody('')}}>Fire</button>
+            <button onClick={() => {editBodySub(_id, ind, newBody); setEditing(false)}}>Fire</button>
         </StyledEditingDiv>
         <StyledUtilsDiv>
                 <EditButton _id={_id} ind={ind} editing={editing} setEdit={setEditing} />
@@ -75,7 +76,7 @@ const SubEditing = ({ _id, ind, editing, setEditing, newBody, setNewBody, setNew
 
 const StyledSub = ({ sub, _id, ind, remove, tick, edit, editBodySub }) => {
     const [editing, setEditing] = useState(false)
-    const [newBody, setNewBody] = useState('')
+    const [newBody, setNewBody] = useState(sub.body)
 
     const setNewBodyF = (event) => {
         setNewBody(event.target.value)
