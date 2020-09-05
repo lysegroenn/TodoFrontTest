@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 
 //const Host = process.env.HOST || 'http://www.lysegroenn.com'
 //const Host = 'http://www.lysegroenn.com/api'
-const Host = 'https://localhost:5000'
+const Host = 'http://localhost:5000'
 
 
 
