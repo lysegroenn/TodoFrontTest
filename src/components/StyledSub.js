@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import TickButton from './TickButton';
 import DeleteButton from './DeleteButton';
 import EditButton from './EditButton';
+import UpdateButton from './UpdateButton';
 
 const StyledSubDiv = styled.div`
 border: 1px solid black;
@@ -64,9 +65,9 @@ const SubEditing = ({ _id, ind, editing, setEditing, newBody, setNewBody, setNew
     <StyledSubDiv>
         <StyledEditingDiv>
             <textarea onChange={setNewBodyF} value={newBody} ></textarea>
-            <button onClick={() => {editBodySub(_id, ind, newBody); setEditing(false)}}>Fire</button>
         </StyledEditingDiv>
         <StyledUtilsDiv>
+                <UpdateButton _id={_id} ind={ind} newBody={newBody} setEdit={setEditing} editBodySub={editBodySub} />
                 <EditButton _id={_id} ind={ind} editing={editing} setEdit={setEditing} />
         </StyledUtilsDiv>
     </StyledSubDiv>
